@@ -6,6 +6,8 @@ import { api } from "@/convex/_generated/api";
 import Image from "next/image";
 import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
+import { Hero } from "@/components/Home";
+import { Footer } from "@/components/Footer";
 
 export default function Home() {
   const {user}=useUser();
@@ -28,8 +30,8 @@ export default function Home() {
   return (
     <div>
       <Navbar/>
-      
-      <UserButton/>
+      <Hero/>
+      <Footer/>
     </div>
   );
 }

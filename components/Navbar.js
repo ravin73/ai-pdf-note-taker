@@ -1,31 +1,33 @@
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
+import { UserButton, useUser } from '@clerk/nextjs';
+
+import { MenuIcon } from 'lucide-react';
 import { Button } from './ui/button';
 import {
-    NavigationMenu,
-    NavigationMenuContent,
-    NavigationMenuIndicator,
-    NavigationMenuItem,
-    NavigationMenuLink,
-    NavigationMenuList,
-    NavigationMenuTrigger,
-    NavigationMenuViewport,
-} from "@/components/ui/navigation-menu"
-import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu"
+    Sheet,
+    SheetContent,
+    SheetDescription,
+    SheetHeader,
+    SheetTitle,
+    SheetTrigger,
+} from "@/components/ui/sheet"
+import { toast } from 'sonner';
+
 
 
 const Navitems = [
     {
         id: '1',
-        path: '/features',
-        label: 'Features',
+        path: '/dashboard',
+        label: 'Dashboard',
         active: false,
     },
     {
         id: '2',
-        path: '/solutions',
-        label: 'Solutions',
+        path: '/features',
+        label: 'Features',
         active: false,
     },
     {
@@ -42,49 +44,104 @@ const Navitems = [
 ];
 const Navbar = () => {
     const [activeNav, setActiveNav] = useState(null);
-
+    const { isSignedIn } = useUser();
     const handleNavClick = (id) => {
         setActiveNav(id);
     };
+    const [isOpen, setIsOpen] = useState(false);
+
+    // Close the sheet when screen size exceeds 1024px (lg breakpoint in Tailwind)
+    useEffect(() => {
+      const handleResize = () => {
+        if (window.innerWidth >= 1024) {
+          setIsOpen(false);
+        }
+      };
+    //   {isSignedIn && toast('User Signed In successfully')}
+    //   {!isSignedIn && toast('User Signed Out successfully')}
+
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }, []);
+  
     return (
-        <nav className='p-4 shadow-md h-16 '>
-            <NavigationMenu className='flex justify-between'>
-                <div className="container mx-auto flex justify-between items-center">
+        <nav className='flex w-full items-center justify-between px-[20px] py-[16px] lg:container lg:mx-auto lg:px-20'>
+            <div className='flex items-center gap-x-20'>
+                <Link href='/'>
+                <Image src={'/logo.svg'}
+                    alt='Logo'
+                    width={40}
+                    height={30} />
+                </Link>
+                <div className='hidden lg:flex gap-x-16 font-medium text-xl text-slate-700'>
+                    {Navitems.map((item) => (
 
-                    {/* Logo */}
-                    <NavigationMenuList>
-                        <NavigationMenuItem>
-                            <Link href="/" passHref legacyBehavior>
-                                <NavigationMenuLink className="inline-flex items-center">
-                                    <Image src="/logo.svg" alt="Logo" width={40} height={30} />
-                                </NavigationMenuLink>
-                            </Link>
-                        </NavigationMenuItem>
-                    </NavigationMenuList>
+                        <Link href={item.path}
+                            onClick={() => handleNavClick(item.label)}>
+                            {item.label}
+                        </Link>
 
-                    {/* Nav Items */}
-                    <NavigationMenuList className="flex space-x-4 items-center text-slate-300">
-                        {Navitems.map((item) => (
-                            <NavigationMenuItem key={item.id}>
-                                <Link href={item.path} passHref legacyBehavior>
-                                    <NavigationMenuLink className="hover:text-white">
-                                        {item.label}
-                                    </NavigationMenuLink>
-                                </Link>
-                            </NavigationMenuItem>
-                        ))}
-
-                        {/* Get Started Button */}
-                        <NavigationMenuItem>
-                            <Button className="rounded-full px-4 py-2 bg-blue-600 text-white hover:bg-blue-500">
-                                <Link href="/sign-in" passHref legacyBehavior>
-                                    <NavigationMenuLink>Get Started</NavigationMenuLink>
-                                </Link>
-                            </Button>
-                        </NavigationMenuItem>
-                    </NavigationMenuList>
+                    ))}
                 </div>
-            </NavigationMenu>
+            </div>
+            <div className='flex gap-x-5 '>
+                <div className='flex items-center gap-x-2'>
+
+                    <UserButton />
+                    
+                    {!isSignedIn && (
+                        <Link href={'/sign-in'}>
+                            {/* <sp className='hidden font-medium text-slate-600 lg:block'>Sign In</span> */}
+                            <Button className='hidden lg:block rounded-full'> Sign In</Button>
+                        </Link>
+                    )}
+                </div>
+                <div className='lg:hidden'>
+                  
+                    <Sheet open={isOpen} onOpenChange={setIsOpen}>
+                        <SheetTrigger asChild>
+                        <button onClick={() => setIsOpen(true)}>
+                            <MenuIcon />
+                            </button>
+                        </SheetTrigger>
+                        <SheetContent>
+                            <SheetHeader>
+                                <SheetTitle className="flex justify-center gap-x-5 mt-16">
+                                    <Image src={'/logo.svg'}
+                                        alt='Logo'
+                                        width={40}
+                                        height={30}
+                                        className='flex justify-center'
+                                    />
+                                    <p>AI PDF Notes</p>
+                                </SheetTitle>
+                                <SheetDescription>
+                                    <div className='flex flex-col items-center text-xl justify-center gap-y-5 mt-5'>
+                                        {Navitems.map((item) => (
+
+                                            <Link href={item.path}
+                                                onClick={() => handleNavClick(item.label)}>
+                                                {item.label}
+                                            </Link>
+
+                                        ))}
+                                        
+                                    </div>
+                                    <div className='mt-5'>
+                                        { !isSignedIn && (
+                                        <Link href={'/sign-in'}>
+                                        <Button className='w-32 rounded-full'>Sign In</Button>
+                                        </Link>
+                                       ) }
+                                    </div>
+                                </SheetDescription>
+                            </SheetHeader>
+                        </SheetContent>
+                    </Sheet>
+
+                </div>
+            </div>
+
         </nav>
 
 
@@ -104,14 +161,14 @@ export default Navbar
 
 //         </div>
 //         <ul className="flex space-x-4 items-center justify-center text-slate-500">
-//             {Navitems.map((item) => (
-//                 <li key={item.id}>
-//                     <Link href={item.path}
-//                         onClick={() => handleNavClick(item.label)}>
-//                         {item.label}
-//                     </Link>
-//                 </li>
-//             ))}
+// {Navitems.map((item) => (
+//     <li key={item.id}>
+//         <Link href={item.path}
+//             onClick={() => handleNavClick(item.label)}>
+//             {item.label}
+//         </Link>
+//     </li>
+// ))}
 //             <Button
 //                 className='rounded-full'>
 //                     <Link href='/sign-in'>Get Started</Link>
