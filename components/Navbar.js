@@ -76,8 +76,10 @@ const Navbar = () => {
                 <div className='hidden lg:flex gap-x-16 font-medium text-xl text-slate-700'>
                     {Navitems.map((item) => (
 
-                        <Link href={item.path}
-                            onClick={() => handleNavClick(item.label)}>
+                        <Link
+                            key={item.id} 
+                            href={item.path}
+                            onClick={() => handleNavClick(item.id)}>
                             {item.label}
                         </Link>
 
@@ -130,7 +132,7 @@ const Navbar = () => {
                                     <div className='mt-5'>
                                         { !isSignedIn && (
                                         <Link href={'/sign-in'}>
-                                        <Button className='w-32 rounded-full'>Sign In</Button>
+                                        <Button className='w-32 h-12 rounded-full'>Sign In</Button>
                                         </Link>
                                        ) }
                                     </div>
