@@ -9,7 +9,7 @@ function WorkspaceHeader({fileName}) {
       <Image src={'/logo.svg'} alt='logo' width={30} height={20}/>
       <h2 className='font-bold'>{fileName}</h2>
       <div className='flex gap-2 items-center justify-evenly'>
-        <Button>Save</Button>
+        
         <UserButton/>
       </div>
       

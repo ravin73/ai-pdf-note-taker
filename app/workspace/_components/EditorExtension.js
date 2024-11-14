@@ -54,84 +54,48 @@ function EditorExtension({ editor }) {
     return editor && (
         <div className='p-5'>
             <div className="control-group">
-                <div className="button-group flex gap-2">
+                <div className="button-group flex flex-wrap gap-2 justify-center md:justify-start">
                     <button
                         onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
-                        className={editor.isActive('heading', { level: 1 }) ? 'text-blue-600' : ''}>
-                        <Heading1 />
+                        className={`p-[clamp(0.5rem, 1vw, 1rem)] ${editor.isActive('heading', { level: 1 }) ? 'text-blue-600' : ''}`}>
+                        <Heading1 className="w-[clamp(1rem, 3vw, 1.5rem)] h-[clamp(1rem, 3vw, 1.5rem)]" />
                     </button>
                     <button
                         onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
-                        className={editor.isActive('heading', { level: 2 }) ? 'text-blue-600' : ''}>
-                        <Heading2 />
+                        className={`p-[clamp(0.5rem, 1vw, 1rem)] ${editor.isActive('heading', { level: 2 }) ? 'text-blue-600' : ''}`}>
+                        <Heading2 className="w-[clamp(1rem, 3vw, 1.5rem)] h-[clamp(1rem, 3vw, 1.5rem)]" />
                     </button>
                     <button
                         onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
-                        className={editor.isActive('heading', { level: 3 }) ? 'text-blue-600' : ''}
-                    >
-                        <Heading3 />
+                        className={`p-[clamp(0.5rem, 1vw, 1rem)] ${editor.isActive('heading', { level: 3 }) ? 'text-blue-600' : ''}`}>
+                        <Heading3 className="w-[clamp(1rem, 3vw, 1.5rem)] h-[clamp(1rem, 3vw, 1.5rem)]" />
                     </button>
                     <button
                         onClick={() => editor.chain().focus().toggleBold().run()}
-                        className={editor.isActive('bold') ? 'text-blue-600' : ''}
-                    >
-                        <BoldIcon />
+                        className={`p-[clamp(0.5rem, 1vw, 1rem)] ${editor.isActive('bold') ? 'text-blue-600' : ''}`}>
+                        <BoldIcon className="w-[clamp(1rem, 3vw, 1.5rem)] h-[clamp(1rem, 3vw, 1.5rem)]" />
                     </button>
                     <button
                         onClick={() => editor.chain().focus().toggleItalic().run()}
-                        className={editor.isActive('italic') ? 'text-blue-600' : ''}
-                    >
-                        <ItalicIcon />
+                        className={`p-[clamp(0.5rem, 1vw, 1rem)] ${editor.isActive('italic') ? 'text-blue-600' : ''}`}>
+                        <ItalicIcon className="w-[clamp(1rem, 3vw, 1.5rem)] h-[clamp(1rem, 3vw, 1.5rem)]" />
                     </button>
                     <button
                         onClick={() => editor.chain().focus().toggleUnderline().run()}
-                        className={editor.isActive('underline') ? 'text-blue-600' : ''}
-                    >
-                        <UnderlineIcon />
+                        className={`p-[clamp(0.5rem, 1vw, 1rem)] ${editor.isActive('underline') ? 'text-blue-600' : ''}`}>
+                        <UnderlineIcon className="w-[clamp(1rem, 3vw, 1.5rem)] h-[clamp(1rem, 3vw, 1.5rem)]" />
                     </button>
-                    <button onClick={() => editor.chain().focus().toggleCode().run()}
-                        className={editor.isActive('code') ? 'is-active' : ''}>
-                        <Code />
-                    </button>
-                    <button onClick={() => editor.chain().focus().toggleBulletList().run()}
-                        className={editor.isActive('bulletList') ? 'is-active' : ''}>
-                        <List />
-                    </button>
-                    <button onClick={() => editor.chain().focus().toggleBlockquote().run()}
-                        className={editor.isActive('blockquote') ? 'is-active' : ''}>
-                        <TextQuote />
-                    </button>
-                    <button onClick={() => editor.chain().focus().toggleHighlight().run()}
-                        className={editor.isActive('highlight') ? 'is-active' : ''}>
-                        <Highlighter />
-                    </button>
-                    <button onClick={() => editor.chain().focus().toggleStrike().run()}
-                        className={editor.isActive('strike') ? 'text-blue-600' : ''}>
-                        <Strikethrough />
-                    </button>
-                    <button onClick={() => editor.chain().focus().setTextAlign('left').run()}
-                        className={editor.isActive({ textAlign: 'left' }) ? 'text-blue-600' : ''}>
-                        <AlignLeft />
-                    </button>
-                    <button onClick={() => editor.chain().focus().setTextAlign('center').run()}
-                        className={editor.isActive({ textAlign: 'center' }) ? 'text-blue-600' : ''}>
-                        <AlignCenter />
-                    </button>
-                    <button
-                        onClick={() => editor.chain().focus().setTextAlign('right').run()}
-                        className={editor.isActive({ textAlign: 'right' }) ? 'text-blue-600' : ''}>
-                        <AlignRight />
-                    </button>
+                    {/* Add additional buttons as needed */}
                     <button
                         onClick={() => onAiClick()}
-                        className={'hover:text-blue-600'}>
-                        <Sparkles />
+                        className='p-[clamp(0.5rem, 1vw, 1rem)] hover:text-blue-600'>
+                        <Sparkles className="w-[clamp(1rem, 3vw, 1.5rem)] h-[clamp(1rem, 3vw, 1.5rem)]" />
                     </button>
-
                 </div>
             </div>
         </div>
     )
+    
 }
 
 export default EditorExtension
