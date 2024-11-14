@@ -15,9 +15,9 @@ function Dashboard() {
 
   return (
     <div>
-      <h2 className='font-medium text-3xl'>Workspace</h2>
+      <h2 className='font-medium text-3xl  '>Workspace</h2>
 
-      <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 mt-10'>
+      <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 mt-10'>
         {fileList?.length > 0
           ? fileList.map((file) => (
               <Link

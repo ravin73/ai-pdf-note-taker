@@ -16,223 +16,114 @@ function UpgradePlans() {
     
   }
   return (
-    <div>
-      <h2 className='font-medium text-3xl flex items-center justify-center'>Plans</h2>
-      <p className='flex items-center justify-center text-xl'>Update your plane to upload multiple pdf to take notes</p>
-      <div className="mx-auto max-w-3xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:items-center md:gap-8">
-          <div
-            className="rounded-2xl border border-indigo-600 p-6 shadow-sm ring-1 ring-indigo-600 sm:order-last sm:px-8 lg:p-12"
-          >
+    <div className="px-4 py-8 md:px-6 lg:px-8">
+      <h2 className="font-medium text-2xl md:text-3xl flex items-center justify-center mb-4">Plans</h2>
+      <p className="text-base md:text-lg flex items-center justify-center text-center">
+        Update your plan to upload multiple PDFs to take notes
+      </p>
+      <div className="mx-auto max-w-3xl py-6 md:py-8 lg:py-12">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8">
+          
+          {/* Pro Plan */}
+          <div className="rounded-2xl border border-indigo-600 p-6 md:p-8 lg:p-10 shadow-sm ring-1 ring-indigo-600 flex flex-col justify-between">
             <div className="text-center">
-              <h2 className="text-lg font-medium text-gray-900">
-                Pro
-                <span className="sr-only">Plan</span>
-              </h2>
-
-              <p className="mt-2 sm:mt-4">
-                <strong className="text-3xl font-bold text-gray-900 sm:text-4xl"> 9.99$ </strong>
-
-                <span className="text-sm font-medium text-gray-700">/LifeTime</span>
+              <h2 className="text-lg md:text-xl font-medium text-gray-900">Pro<span className="sr-only">Plan</span></h2>
+              <p className="mt-2 md:mt-4">
+                <strong className="text-2xl md:text-3xl font-bold text-gray-900">$9.99</strong>
+                <span className="text-sm font-medium text-gray-700"> / LifeTime</span>
               </p>
             </div>
-
-            <ul className="mt-6 space-y-2">
-              <li className="flex items-center gap-1">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="size-5 text-indigo-700"
-                >
+  
+            <ul className="mt-6 space-y-3">
+              <li className="flex items-center gap-2 text-sm md:text-base text-gray-700">
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-indigo-700" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                 </svg>
-
-                <span className="text-gray-700"> Unlimited PDF Upload </span>
+                Unlimited PDF Upload
               </li>
-
-              <li className="flex items-center gap-1">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="size-5 text-indigo-700"
-                >
+              <li className="flex items-center gap-2 text-sm md:text-base text-gray-700">
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-indigo-700" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                 </svg>
-
-                <span className="text-gray-700"> Unlimited Notes Taking  </span>
+                Unlimited Note Taking
               </li>
-
-              <li className="flex items-center gap-1">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="size-5 text-indigo-700"
-                >
+              <li className="flex items-center gap-2 text-sm md:text-base text-gray-700">
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-indigo-700" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                 </svg>
-
-                <span className="text-gray-700"> Email support </span>
+                Email Support
               </li>
-
-              <li className="flex items-center gap-1">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="size-5 text-indigo-700"
-                >
+              <li className="flex items-center gap-2 text-sm md:text-base text-gray-700">
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-indigo-700" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                 </svg>
-
-                <span className="text-gray-700"> Help center access </span>
+                Help Center Access
               </li>
-
-              <li className="flex items-center gap-1">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="size-5 text-indigo-700"
-                >
+              <li className="flex items-center gap-2 text-sm md:text-base text-gray-700">
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-indigo-700" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                 </svg>
-
-                <span className="text-gray-700"> Phone support </span>
-              </li>
-
-              <li className="flex items-center gap-1">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="size-5 text-indigo-700"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                </svg>
-
-                <span className="text-gray-700"> Community access </span>
+                Phone Support
               </li>
             </ul>
-
-            {/* <a
-              href="#"
-              className="mt-8 block rounded-full border border-indigo-600 bg-indigo-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-indigo-700 hover:ring-1 hover:ring-indigo-700 focus:outline-none focus:ring active:text-indigo-500"
-            >
-              Get Started
-            </a> */}
-            <div className='w-8 md:w-14 lg:w-60 mt-5'>
+  
+            <div className="flex justify-center mt-5 w-full md:w-auto">
               <PayPalButtons
                 onApprove={() => onPaymentSucess()}
-                onCancel={() => console.log('Payment Cancel')}
+                onCancel={() => console.log('Payment Canceled')}
                 createOrder={(data, actions) => {
                   return actions?.order?.create({
                     purchase_units: [
                       {
-                        amount: {
-                          value: '9.99',
-                          currency_code: 'USD'
-                        }
+                        amount: { value: '9.99', currency_code: 'USD' }
                       }
                     ]
-                  })
-                }} />
+                  });
+                }}
+              />
             </div>
           </div>
-
-          <div className="rounded-2xl border border-gray-200 p-6 shadow-sm sm:px-8 lg:p-12">
+  
+          {/* Starter Plan */}
+          <div className="rounded-2xl border border-gray-200 p-6 md:p-8 lg:p-10 shadow-sm flex flex-col justify-between">
             <div className="text-center">
-              <h2 className="text-lg font-medium text-gray-900">
-                Starter
-                <span className="sr-only">Plan</span>
-              </h2>
-
-              <p className="mt-2 sm:mt-4">
-                <strong className="text-3xl font-bold text-gray-900 sm:text-4xl"> 0$ </strong>
-
-                <span className="text-sm font-medium text-gray-700">/month</span>
+              <h2 className="text-lg md:text-xl font-medium text-gray-900">Starter<span className="sr-only">Plan</span></h2>
+              <p className="mt-2 md:mt-4">
+                <strong className="text-2xl md:text-3xl font-bold text-gray-900">$0</strong>
+                <span className="text-sm font-medium text-gray-700"> / month</span>
               </p>
             </div>
-
-            <ul className="mt-6 space-y-2">
-              <li className="flex items-center gap-1">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="size-5 text-indigo-700"
-                >
+  
+            <ul className="mt-6 space-y-3">
+              <li className="flex items-center gap-2 text-sm md:text-base text-gray-700">
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-indigo-700" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                 </svg>
-
-                <span className="text-gray-700">5 PDF Upload</span>
+                5 PDF Uploads
               </li>
-
-              <li className="flex items-center gap-1">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="size-5 text-indigo-700"
-                >
+              <li className="flex items-center gap-2 text-sm md:text-base text-gray-700">
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-indigo-700" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                 </svg>
-
-                <span className="text-gray-700"> Unlimited Notes Taking </span>
+                Unlimited Note Taking
               </li>
-
-              <li className="flex items-center gap-1">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="size-5 text-indigo-700"
-                >
+              <li className="flex items-center gap-2 text-sm md:text-base text-gray-700">
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-indigo-700" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                 </svg>
-
-                <span className="text-gray-700"> Email support </span>
+                Email Support
               </li>
-
-              <li className="flex items-center gap-1">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="size-5 text-indigo-700"
-                >
+              <li className="flex items-center gap-2 text-sm md:text-base text-gray-700">
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-indigo-700" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                 </svg>
-
-                <span className="text-gray-700"> Help center access </span>
+                Help Center Access
               </li>
             </ul>
-
+  
             <a
               href="#"
-              className="mt-8 block rounded-full border border-indigo-600 bg-white px-12 py-3 text-center text-sm font-medium text-indigo-600 hover:ring-1 hover:ring-indigo-600 focus:outline-none focus:ring active:text-indigo-500"
+              className="mt-6 block rounded-full border border-indigo-600 bg-white px-8 py-2 text-center text-sm font-medium text-indigo-600 hover:ring-1 hover:ring-indigo-600 focus:outline-none"
             >
               Current Plan
             </a>
@@ -240,7 +131,8 @@ function UpgradePlans() {
         </div>
       </div>
     </div>
-  )
+  );
+  
 }
 
 export default UpgradePlans

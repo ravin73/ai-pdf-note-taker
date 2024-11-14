@@ -8,7 +8,7 @@ import { api } from '@/convex/_generated/api'
 
     
 function TextEditor({fileId}) {
-    // used to get notes stored from the db
+    // used to get notes stored inthe db
     const notes=useQuery(api.notes.GetNotes,{
         fileId:fileId
     })

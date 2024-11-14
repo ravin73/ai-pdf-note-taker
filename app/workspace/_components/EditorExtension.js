@@ -1,4 +1,4 @@
-import { chatSession } from '@/configs/AiModel';
+import { chatSession } from '@/configs/AIModel';
 import { api } from '@/convex/_generated/api';
 import { useUser } from '@clerk/nextjs';
 import { useAction, useMutation } from 'convex/react';
@@ -18,7 +18,7 @@ function EditorExtension({ editor }) {
     
     const onAiClick =async () => {
         toast("AI is Giving your answer")
-        const selectedText=editor.state.doc.textBetween(
+        const selectedText=editor.state.doc.textBetween(     
             editor.state.selection.from,
             editor.state.selection.to,
             ' '
@@ -39,7 +39,7 @@ function EditorExtension({ editor }) {
 
         const AiModelResult=await chatSession.sendMessage(PROMPT);
         console.log(AiModelResult.response.text())
-        const  FinalAns=AiModelResult.response.text().replace('```','').replace('html','');
+        const FinalAns=AiModelResult.response.text().replace('```','').replace('html','').replace('```','');
 
         const AllText=editor.getHTML();
         editor.commands.setContent(AllText+'<p> <strong>Answer:</strong>'+FinalAns+'</p>')

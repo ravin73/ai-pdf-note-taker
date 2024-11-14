@@ -54,10 +54,10 @@ export const GetUserFiles=query({
     },
     handler:async(ctx,args)=>{
         if(!args?.userEmail){
-            return 'No File Fount'
+            return 'No File Found'
         }
         const result =await ctx.db.query('pdfFiles')
-        .filter((q)=>q.eq(q.field('createdBy'),args?.userEmail)).collect();
+        .filter((q)=>q.eq(q.field('createdBy'),args.userEmail)).collect();
 
         return result;
     }
